@@ -5,8 +5,12 @@ export default async function displayResults(results, searchArguments){
 
     //REMOVE ANY CHILDREN FROM THE RESULTS DIV
     let resultsDiv = document.getElementsByClassName('results')[0];
+    let errorContainer = document.getElementsByClassName('error-container')[0];
     while(resultsDiv.firstChild){
         resultsDiv.removeChild(resultsDiv.firstChild);
+    }
+    while(errorContainer.firstChild){
+        errorContainer.removeChild(errorContainer.firstChild);
     }
 
     let resultArr = await results;
@@ -18,7 +22,7 @@ export default async function displayResults(results, searchArguments){
         let errorMessage = document.createElement('p');
         errorMessage.className = "error-message";
         errorMessage.innerHTML += `You searched for <b>"${searchArguments[0]}"</b> in <b>"${searchArguments[1]}"</b>.<br> Sorry, we could not find any cockails.<br> Please try again`;
-        resultsDiv.appendChild(errorMessage);} 
+        errorContainer.appendChild(errorMessage);} 
 
     //CHECK IF RETURNED RESULTS ARE FOR INGREDIENTS AND DISPLAY RESULTS
     try{

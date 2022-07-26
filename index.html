@@ -5,29 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Cocktail Bar</title>
-
-    <link rel="stylesheet" href="style.css">
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./mediaStyles.css">
 
     <!-- Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-        
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     
 </head>
 <body>
 
+    <audio preload="auto" muted loop src="./music/jazz_lounge.mp3"></audio>
     <header>
+        <a href=""><i class="material-icons home">home</i></a>
+        <i class="material-icons menu">menu</i></a>
         <a href="javascript:location.reload();"><h1>The Cocktail Bar</h1></a>
+        <i class="material-icons unmute">volume_up</i>
+        <i class="material-icons mute">volume_off</i>
     </header>
+    <div class="mobileMenu">
+        <i class="material-icons menu" id="close-menu">menu</i></a>
+        <h2><a href="">Link1</a></h2>
+        <h2><a href="">Link2</a></h2>
+        <h2><a href="">Link3</a></h2>
+    </div>
+
         
     <div class="body-wrapper">
+        
 
         <div class="quote-wrapper">
             <p class="quote"></p>
             <p class="quoter"></p>
+        </div>
+
+        <div class="results">
         </div>
 
         <div class="search-container">
@@ -44,15 +61,16 @@
         </div>
 
 
-        <div class="results">
-        </div>
+        
     
 
     </div>
 
     <footer>
-        <p>Vanilla JS Cocktails &copy 2022 </p>
-        <p><a href="">Contact</a></p>
+        <div class="footer-items-wrapper">
+            <p>Vanilla JS Cocktails &copy 2022 </p>
+            <p><a href="">Contact</a></p>
+        </div>
     </footer>
     <script type="module" src="./scripts/script.js"></script>
 </body>

@@ -8,6 +8,48 @@ let ingredientsFilter = document.getElementById('ingredients-button');
 let filter = 'cocktail'
 let searchFilter = "";
 
+//MOBILE BURGER MENU
+
+let menuButton = document.getElementsByClassName('menu')[0];
+let mobileMenu = document.getElementsByClassName('mobileMenu')[0];
+let header = document.getElementsByTagName('header')[0];
+let bodyWrapper = document.getElementsByClassName('body-wrapper')[0];
+let footer = document.getElementsByTagName('footer')[0];
+let closeMenu = document.getElementById('close-menu');
+
+menuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open-mobile-menu');
+    header.style.display = 'none'
+    bodyWrapper.style.opacity = "0.1";
+    footer.style.opacity = "0.1";
+});
+
+closeMenu.addEventListener('click', closeMenuFunction)
+
+function closeMenuFunction(){
+        mobileMenu.classList.toggle('open-mobile-menu');
+        header.style.display = 'flex';
+        bodyWrapper.style.opacity = "1";
+        footer.style.opacity = "1";
+}
+
+//MUTE UNMUTE
+let unmute = document.getElementsByClassName('unmute')[0];
+let mute = document.getElementsByClassName('mute')[0];
+let audio = document.getElementsByTagName('audio')[0];
+
+
+unmute.addEventListener('click', () => {
+    audio.play();
+    audio.muted = false;
+    unmute.style.display = 'none';
+    mute.style.display = 'block';
+})
+mute.addEventListener('click', () => {
+    audio.muted = true;
+    unmute.style.display = 'block';
+    mute.style.display = 'none';
+})
 
 //IMPORT QUOTES
 import { quotes } from './quotes.js';
@@ -31,25 +73,34 @@ import displayResults from './handlers.js';
 
 //BUTTON ADD REMOVE CLASSES AND SET FILTER
 cocktailsFilter.addEventListener('click', ()=>{
-    if(!cocktailsFilter.classList.contains('button-active')){
-        cocktailsFilter.classList.add('button-active');
-        ingredientsFilter.classList.remove('button-active');
-        filter = 'cocktail';
-    }
+        if(input.value !== "Search" && input.value.length !== 0){
+            filter = 'cocktail';
+            getSearchInput();
+            input.value = 'Search';
+        } else {
+            if(!cocktailsFilter.classList.contains('button-active')){
+                cocktailsFilter.classList.add('button-active');
+                ingredientsFilter.classList.remove('button-active');
+                filter = 'cocktail';
+            }
+        }
 });
 ingredientsFilter.addEventListener('click', ()=>{
-    if(!ingredientsFilter.classList.contains('button-active')){
-        ingredientsFilter.classList.toggle('button-active');
-        cocktailsFilter.classList.remove('button-active');
-        filter = 'ingredient';
+    if(input.value !== "Search" && input.value.length !== 0){
+        filter = 'ingredients';
+        getSearchInput();
+        input.value = 'Search'; 
+    } else {
+        if(!ingredientsFilter.classList.contains('button-active')){
+                ingredientsFilter.classList.toggle('button-active');
+                cocktailsFilter.classList.remove('button-active');
+                filter = 'ingredient';
+            }
     }
 });
 
 //search input event listener
 input.addEventListener('click', ()=>{
-    // searchContainer.style.borderStyle = 'solid';
-    // searchContainer.style.borderSize = '2px';
-    // searchContainer.style.borderColor = 'blue';
     if(input.value == "Search"){
         input.value = ""
     };
@@ -62,7 +113,8 @@ searchIcon.addEventListener('click', ()=> {
 let searchInput = [filter];
 
 function getSearchInput(){
-
+    console.log(input.value);
+    console.log(input.value.length);
     //RECEIVE AND TIDY SEARCH INPUT
     let lowerCaseSearch = input.value.toLowerCase()
     
@@ -107,7 +159,8 @@ window.addEventListener('keydown', (e) => {
         input.value = 'Search';
     }
 });
-//REMOVE FOCUS STYLING FROM SEARCH BAR
+
+
 window.addEventListener('click', (e) => {
     let target = e.target.getAttribute('id');
     if(target !== 'search'){

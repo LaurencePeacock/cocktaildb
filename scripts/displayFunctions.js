@@ -46,17 +46,27 @@ function createNewGlass (drink) {
             let newGlass = document.createElement('p');
             newGlass.className = "glass-type";
             let newGlassName = document.createTextNode(drink.strGlass);
-            newGlass.innerHTML = `<span><b>Use a: </b></span>`;
+            if(drink.strGlass[0] === 'A' ||
+                drink.strGlass[0] === 'E' ||
+                drink.strGlass[0] === 'I' ||
+                drink.strGlass[0] === 'O' ||
+                drink.strGlass[0] === 'U' 
+            ){
+                newGlass.innerHTML = `<span><b>Use an: </b></span>`;
+             } else {
+                newGlass.innerHTML = `<span><b>Use a: </b></span>`;
+             }
             newGlass.appendChild(newGlassName);
             return newGlass;
 }
 
 function createNewInstruction (drink) {
-    let newInstructionsEntry = document.createElement('p');
-                    let newInstructionsContent = document.createTextNode(drink.strInstructions);
-                    newInstructionsEntry.innerHTML = `<span><b>Instructions: </b></span>`;
-                    newInstructionsEntry.appendChild(newInstructionsContent);
-                    return newInstructionsEntry;
+            let newInstructionsEntry = document.createElement('p');
+            newInstructionsEntry.className ="drink-instructions"                
+            let newInstructionsContent = document.createTextNode(drink.strInstructions);
+            newInstructionsEntry.innerHTML = `<span><b>Instructions: </b></span>`;
+            newInstructionsEntry.appendChild(newInstructionsContent);
+            return newInstructionsEntry;
 }
 
 export {createNewDetail, createDrinkType, createDrinkImage, createIngredientList, createNewGlass, createNewInstruction}

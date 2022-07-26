@@ -1,9 +1,104 @@
+@media only screen and (max-height: 1000px){
+    header{
+        min-height: 30vh;
+    }
+    .quote-wrapper{
+        margin: 1.5em auto;
+    }
+    .search-container{
+        margin: 2em auto;
+    }
+    input, button{
+        height: 2.75em;
+    }
+    .search-filter-wrapper{
+        margin: 3em auto;
+    }
+}
+
+@media only screen and (min-width: 500px){
+    details{
+        text-align: center;
+    }
+    details[open]{
+        padding: 1em 1.5em;
+    }
+    
+    summary{
+        padding: 1em 0;
+    }
+    details img{
+        width: 30%;
+    }
+    .ingredient-title{
+        max-width: 100%;  
+    }
+    details > p, ul{
+        max-width: 100%;
+    }
+}
+ 
+@media only screen and (min-width: 630px){
+    
+    input{
+        padding-left: 2em;
+    }
+    details{
+        text-align: left;
+    }
+    details summary{
+        text-align: center;
+    }
+    .results-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 2rem 1rem;
+    }
+    .sub-wrapper1, .sub-wrapper2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    } 
+    .drink-type{
+        padding-top: 0;
+    }
+    details .ingredient-title{
+        margin: 0;
+        padding: 0;
+    }
+    details img{
+        width: 6rem;
+        height: auto;
+        border-radius: 50%;
+        box-shadow: -3px 3px 4px 2px  rgb(186, 186, 186);
+        margin: 1rem auto;
+    }
+    details ul{
+        margin: 1rem auto;
+        text-align: center;
+    }
+    .glass-type, .drink-instructions{
+        padding-left: 1.5em;
+    }
+    .quote-wrapper{
+        margin: 3rem auto;
+    }
+}
+
 @media only screen and (min-width: 800px){
     header{
         min-height: 45vh;
     }
+    input{
+        padding-left: 3em;
+    }
+    summary:hover{
+    cursor: pointer;
+    color:#404040
+    } 
     .search-filter-wrapper{
-        /* width: 80%; */
+    
         display: flex;
         justify-content: space-between;
         flex-direction: row;
@@ -15,37 +110,51 @@
         margin-left: 0.5em;
     }
 }
+@media only screen and (min-width: 850px){
+    .glass-type, .drink-instructions{
+        padding-left: 0;
+        text-align: center;
+    }
+    .drink-instructions{
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    details img{
+        width: 7rem;
+    }
+}
 @media only screen and (min-width: 1000px){
+    input{
+        padding-left: 4em;
+    }
     .body-wrapper{
-        max-width: 70%;
+        max-width: 65%;
     }
     details{
         font-size: 1.2em;
     }
-}
-
-@media only screen and (min-width: 630px){
-    .results-wrapper{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding: 2rem 10% 0;
-        
-    }
-    .sub-wrapper1, .sub-wrapper2{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-       
-        
-    }
-    details .ingredient-title{
-        padding: 0;
-    }
     details img{
-        width: 50%;
-        border-radius: 50%;
-        box-shadow: -3px 3px 4px 2px  rgb(186, 186, 186);
-        margin: 1rem auto 1rem;
+        width: 8rem;
+    }
+    .search-container{
+        margin-top: 4rem;
     }
 }
+@media only screen and (min-width: 1200px){
+    input{
+        padding-left: 5em;
+    }
+    .body-wrapper, details{
+    max-width: 850px;
+}
+}
+@media only screen and (min-width: 1500px){
+    input{
+        padding-left: 6em;
+    }
+    .body-wrapper, details{
+        max-width: 950px;
+    }
+    }
+
+

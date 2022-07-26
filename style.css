@@ -27,19 +27,19 @@ header{
     left: 1em;
 }
 .material-icons{
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
     cursor: pointer; 
 }
 .menu{
     position: absolute;
-    top: 1em;
-    right: 1em;
+    top: 0.5em;
+    right: 0.5em;
 }
 .unmute, .mute{
     position: absolute;
-    bottom: 1em;
-    right: 1em;
+    bottom: 0.5em;
+    right: 0.5em;
     opacity: 0.5;
 }
 .mute{
@@ -264,8 +264,7 @@ summary{
     cursor: pointer;
 }
 summary::marker{
-    content: '\03D2  ';
-    font-size: 0.8em;
+    content: '';
 }
 details[open] summary{
     padding: 0.5em 0 0 0 ;

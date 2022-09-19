@@ -1,4 +1,4 @@
-import { createNewDetail, createDrinkType, createDrinkImage, createIngredientList, createNewGlass, createNewInstruction } from "./displayFunctions.js";
+import { createNewDetail, createDrinkType, createDrinkImage, createIngredientList, createNewGlass, createNewInstruction } from "./displayResultsHelperFunctions.js";
 export default async function ingredientFetch (idUrl, drinkID) {
 
     let request = await fetch(idUrl+drinkID);
@@ -50,4 +50,5 @@ export default async function ingredientFetch (idUrl, drinkID) {
 
     return newDetail;
    }
-  
+
+

@@ -1,35 +1,21 @@
 import ingredientFetch from "./ingredientFetch.js";
-import { createNewDetail, createDrinkType, createDrinkImage, createIngredientList, createNewGlass, createNewInstruction } from "./displayFunctions.js";
+import { createNewDetail, createDrinkType, createDrinkImage, createIngredientList, createNewGlass, createNewInstruction } from "./displayResultsHelperFunctions.js";
 
-export default async function displayResults(results, searchArguments){
-
-    //REMOVE ANY CHILDREN FROM THE RESULTS DIV
-    let resultsDiv = document.getElementsByClassName('results')[0];
-    let errorContainer = document.getElementsByClassName('error-container')[0];
-    while(resultsDiv.firstChild){
-        resultsDiv.removeChild(resultsDiv.firstChild);
-    }
-    while(errorContainer.firstChild){
-        errorContainer.removeChild(errorContainer.firstChild);
-    }
-
-    let resultArr = await results;
-    console.log(resultArr);
+const resultsDiv = document.getElementsByClassName('results')[0];
     
 
-    //CHECK IF RETURNED JSON IS EMPTY
-    if(!resultArr.drinks){
-        let errorMessage = document.createElement('p');
-        errorMessage.className = "error-message";
-        errorMessage.innerHTML += `You searched for <b>"${searchArguments[0]}"</b> in <b>"${searchArguments[1]}"</b>.<br> Sorry, we could not find any cockails.<br> Please try again`;
-        errorContainer.appendChild(errorMessage);} 
+
+
+export default async function displayResults(results){
+
+    const cocktailResultsArray = await results;
 
     //CHECK IF RETURNED RESULTS ARE FOR INGREDIENTS AND DISPLAY RESULTS
     try{
-        if(Object.keys(resultArr.drinks[0]).length == 3){
+        if(Object.keys(cocktailResultsArray.drinks[0]).length == 3){
 
             //DISPLAY HTML FOR INGREDIENT SEARCH;
-            resultArr.drinks.forEach((drink) => {
+            cocktailResultsArray.drinks.forEach((drink) => {
 
         //FOR EACH DRINK, FETCH INFO FROM DRINKS DB BY DRINK ID 
             let idUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
@@ -41,7 +27,7 @@ export default async function displayResults(results, searchArguments){
         } else {
 
         //DISPLAY HTML FOR COCKTAIL SEARCH
-                resultArr.drinks.forEach((drink) => {
+                cocktailResultsArray.drinks.forEach((drink) => {
 
                     //CREATE NEW DETAIL TO STORE INDIVIDUAL RESULTS
                     let newDetail = createNewDetail(drink)
